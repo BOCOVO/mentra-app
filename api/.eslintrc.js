@@ -40,8 +40,11 @@ module.exports = {
     ],
   },
   settings: {
-    "import/resolver": {
-      typescript: true,
-    }
-  }
+    'import/resolver': {
+      node: true,
+      typescript: {
+        project: "./tsconfig.json"
+      },
+    },
+  },
 };
