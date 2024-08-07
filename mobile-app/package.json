@@ -15,6 +15,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@react-native-google-signin/google-signin": "^12.2.1",
     "@react-navigation/native": "^6.1.17",
     "@tamagui/config": "^1.108.2",
     "@tamagui/lucide-icons": "^1.108.2",
