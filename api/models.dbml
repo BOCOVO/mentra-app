@@ -3,9 +3,13 @@ enum TransactionType {
   Income
 }
 
+enum Provider {
+  Google
+}
+
 table category {
   id integer [pk, unique]
-  name varchar [not null]
+  title varchar [not null]
   icon_name varchar
   is_common_category bool
   owner_id integer [ref: > users.id ]
@@ -13,6 +17,11 @@ table category {
 
 table users {
   id integer [pk, unique]
+  email varchar [unique]
+  provider Provider
+  social_id varchar
+  first_name varchar
+  last_name varchar
 }
 
 table transactions {
