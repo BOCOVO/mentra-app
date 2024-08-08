@@ -6,6 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configurations from './config/configurations';
 import { mikroOrmModuleConfig } from './config/mikro-orm.config';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -13,6 +15,8 @@ import { mikroOrmModuleConfig } from './config/mikro-orm.config';
       load: [configurations],
     }),
     MikroOrmModule.forRootAsync(mikroOrmModuleConfig),
+    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
