@@ -23,7 +23,7 @@
     "migration:create": "mikro-orm migration:create"
   },
   "dependencies": {
-    "@apollo/server": "^4.10.5",
+    "@apollo/server": "^4.11.0",
     "@mikro-orm/core": "^6.3.3",
     "@mikro-orm/nestjs": "^6.0.2",
     "@mikro-orm/postgresql": "^6.3.3",
@@ -70,8 +70,7 @@
   "mikro-orm": {
     "useTsNode": true,
     "configPaths": [
-      "./src/mikro-orm.config.ts",
-      "./dist/mikro-orm.config.js"
+      "./mikro-orm.config.ts"
     ]
   },
   "jest": {
