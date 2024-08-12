@@ -10,11 +10,13 @@ import configurations from './config/configurations';
 import { mikroOrmModuleConfig } from './config/mikro-orm.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
+import { GoogleAuthModule } from './modules/google-auth/google-auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configurations],
+      isGlobal: true,
     }),
     MikroOrmModule.forRootAsync(mikroOrmModuleConfig),
     AuthModule,
@@ -24,6 +26,7 @@ import { UsersModule } from './modules/users/users.module';
       playground: process.env.GRAPHQL_PLAYGROUND === 'true',
       autoSchemaFile: true,
     }),
+    GoogleAuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
