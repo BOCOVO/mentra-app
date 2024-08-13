@@ -203,3 +203,8 @@ dbdata
 
 # Migrations
 src/migrations
+
+
+# Upload
+
+upload

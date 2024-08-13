@@ -11,6 +11,9 @@ import { mikroOrmModuleConfig } from './config/mikro-orm.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { GoogleAuthModule } from './modules/google-auth/google-auth.module';
+import { UploadService } from './modules/upload/upload.service';
+import { UploadController } from './modules/upload/upload.controller';
+import { UploadModule } from './modules/upload/upload.module';
 
 @Module({
   imports: [
@@ -27,8 +30,9 @@ import { GoogleAuthModule } from './modules/google-auth/google-auth.module';
       autoSchemaFile: true,
     }),
     GoogleAuthModule,
+    UploadModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UploadController],
+  providers: [AppService, UploadService],
 })
 export class AppModule {}

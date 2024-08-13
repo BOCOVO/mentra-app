@@ -10,4 +10,7 @@ export default (): AppEnvConfigs => ({
     jwtExpiresIn: process.env.JWT_EXPIRES_IN,
     jwtSecret: process.env.JWT_SECRET,
   },
+  googleAI: {
+    apiKey: process.env.GOOGLE_AI_API_KEY,
+  },
 });

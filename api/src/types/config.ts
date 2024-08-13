@@ -8,8 +8,13 @@ interface JWTConfig {
   jwtExpiresIn: string;
 }
 
+interface GoogleAIConfig {
+  apiKey: string;
+}
+
 export default interface AppEnvConfigs {
   port: number;
   google: GoogleConfig;
   jwt: JWTConfig;
+  googleAI: GoogleAIConfig;
 }
