@@ -9,6 +9,8 @@ import { WrongAuthToken } from './errors/WrongAuthToken';
 import { LoginArgs } from './dtos/login-payload.dtos';
 import { LoginResponse } from './dtos/login-response.dtos';
 
+import { JwtTokenPayload } from '@/types/user';
+
 @Injectable()
 export class AuthService {
   private readonly logger = new Logger(AuthService.name);
@@ -49,7 +51,7 @@ export class AuthService {
   }
 
   async createToken(userID: string): Promise<string> {
-    const payload = { id: userID };
+    const payload: JwtTokenPayload = { id: userID };
     const token = await this.jwtService.signAsync(payload);
 
     return token;

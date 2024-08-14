@@ -6,11 +6,12 @@ import { GoogleAuthModule } from '../google-auth/google-auth.module';
 
 import { AuthService } from './auth.service';
 import { AuthResolver } from './auth.resolver';
+import { JwtStrategy } from './strategy/jwt.strategy';
 
 import { jwtModuleConfig } from '@/config/jwt-module.config';
 
 @Module({
-  providers: [AuthService, AuthResolver],
+  providers: [AuthService, AuthResolver, JwtStrategy],
   imports: [
     UsersModule,
     GoogleAuthModule,
