@@ -36,7 +36,12 @@ export class AuthService {
       };
     } catch (error) {
       if (error instanceof WrongAuthToken) {
-        this.logger.error({ idToken: loginArgs.idToken }, 'Invalid id token');
+        this.logger.error(
+          {
+            message: 'Invalid id token',
+          },
+          error,
+        );
       }
 
       throw error;
