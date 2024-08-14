@@ -14,6 +14,7 @@ import { GoogleAuthModule } from './modules/google-auth/google-auth.module';
 import { UploadService } from './modules/upload/upload.service';
 import { UploadController } from './modules/upload/upload.controller';
 import { UploadModule } from './modules/upload/upload.module';
+import { ExpenseExtractorModule } from './modules/expense-extractor/expense-extractor.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { UploadModule } from './modules/upload/upload.module';
     }),
     GoogleAuthModule,
     UploadModule,
+    ExpenseExtractorModule,
   ],
   controllers: [AppController, UploadController],
   providers: [AppService, UploadService],
