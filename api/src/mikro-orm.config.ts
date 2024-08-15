@@ -1,6 +1,6 @@
 import { config as loadEnvs } from 'dotenv';
 
-import { getDBConfig } from './src/config/mikro-orm.config';
+import { getDBConfig } from './config/mikro-orm.config';
 
 loadEnvs();
 
