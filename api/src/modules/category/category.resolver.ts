@@ -27,6 +27,7 @@ export class CategoryResolver {
   ) {
     return this.categoryService.createCategory(user.id, args);
   }
+
   @Mutation(() => OperationResult)
   @GqlUseAuth()
   async deleteCategory(
