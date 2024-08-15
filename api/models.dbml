@@ -31,4 +31,6 @@ table transactions {
   category_id integer [ref: > category.id]
   amount decimal [not null]
   title varchar [not null]
+  description varchar [not null]
+  date timestamp [not null]
 }

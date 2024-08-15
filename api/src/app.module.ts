@@ -4,18 +4,16 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configurations from './config/configurations';
 import { mikroOrmModuleConfig } from './config/mikro-orm.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { GoogleAuthModule } from './modules/google-auth/google-auth.module';
-import { UploadService } from './modules/upload/upload.service';
-import { UploadController } from './modules/upload/upload.controller';
 import { UploadModule } from './modules/upload/upload.module';
 import { ExpenseExtractorModule } from './modules/expense-extractor/expense-extractor.module';
 import { CategoryModule } from './modules/category/category.module';
+import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
@@ -35,8 +33,9 @@ import { CategoryModule } from './modules/category/category.module';
     UploadModule,
     ExpenseExtractorModule,
     CategoryModule,
+    TransactionModule,
   ],
-  controllers: [AppController, UploadController],
-  providers: [AppService, UploadService],
+  controllers: [],
+  providers: [AppService],
 })
 export class AppModule {}
