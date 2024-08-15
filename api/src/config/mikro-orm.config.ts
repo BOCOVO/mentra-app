@@ -12,6 +12,9 @@ export const getDBConfig = (): Partial<MikroORMOptions> => {
     debug: process.env.DB_DEBUG === 'true',
     entities: ['./dist/**/entities/**.entity.js'],
     entitiesTs: ['./src/**/entities/**.entity.ts'],
+    migrations: {
+      path: './dist/migrations/**',
+    },
     driver: PostgreSqlDriver,
   };
 };
