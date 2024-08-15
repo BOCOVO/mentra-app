@@ -1,7 +1,68 @@
 import { config as configBase } from "@tamagui/config/v3";
-import { createTamagui, createTokens } from "tamagui";
+import { createFont, createTamagui, createTokens } from "tamagui";
 
-const { tokens: baseTokens, ...restBaseConfig } = configBase;
+const { tokens: baseTokens, fonts, ...restBaseConfig } = configBase;
+
+const typos = createFont({
+  family: "Inter",
+  size: {
+    ...fonts.body.size,
+    titleX: 64,
+    title1: 32,
+    title2: 24,
+    title3: 18,
+    regular1: 16,
+    regular2: 16,
+    regular3: 14,
+    small: 13,
+    tiny: 12,
+  },
+  lineHeight: {
+    ...fonts.body.lineHeight,
+
+    titleX: 80,
+    title1: 34,
+    title2: 22,
+    title3: 22,
+    regular1: 19,
+    regular2: 19,
+    regular3: 18,
+    small: 16,
+    tiny: 12,
+  },
+  weight: {
+    ...fonts.body.weight,
+
+    titleX: "700",
+    title1: "700",
+    title2: "600",
+    title3: "600",
+    regular1: "500",
+    regular2: "600",
+    regular3: "500",
+    small: "500",
+    tiny: "500",
+  },
+  letterSpacing: {
+    ...fonts.body.letterSpacing,
+
+    titleX: 0,
+    title1: 0,
+    title2: 0,
+    title3: 0,
+    regular1: 0,
+    regular2: 0,
+    regular3: 0,
+    small: 0,
+    tiny: 0,
+  },
+  face: {
+    ...fonts.body.face,
+    700: { normal: "InterBold" },
+    500: { normal: "InterMedium" },
+    600: { normal: "InterSemiBold" },
+  },
+});
 
 // @ts-ignore
 const tokens = createTokens({
@@ -50,7 +111,15 @@ const tokens = createTokens({
   },
 });
 
-export const config = createTamagui({ tokens, ...restBaseConfig });
+export const config = createTamagui({
+  tokens,
+  fonts: {
+    ...fonts,
+    // @ts-ignore
+    body: typos,
+  },
+  ...restBaseConfig,
+});
 
 export default config;
 
