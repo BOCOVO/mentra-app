@@ -137,6 +137,12 @@ export const config = createTamagui({
       borderColorHover: "hsla(261, 100%, 88%, 1)",
       borderColorPress: "hsla(261, 100%, 80%, 1)",
     },
+    input: {
+      borderColor: colors["light.60"],
+      background: colors["light.100"],
+      backgroundPress: colors["light.60"],
+      backgroundFocus: colors["light.60"],
+    },
   },
   fonts: {
     ...fonts,
