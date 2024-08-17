@@ -1,6 +1,7 @@
 import "../tamagui-web.css";
+import Constants from "expo-constants";
 
-import { useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { useColorScheme } from "react-native";
 import {
   DarkTheme,
@@ -24,7 +25,8 @@ export const unstable_settings = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+function Wrapper({ children }: PropsWithChildren) {
+  const colorScheme = useColorScheme();
   const [interLoaded, interError] = useFonts({
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
     InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
@@ -42,35 +44,54 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
     <Provider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen
-            name="(tabs)"
-            options={{
-              headerShown: false,
-            }}
-          />
-
-          <Stack.Screen
-            name="modal"
-            options={{
-              title: "Tamagui + Expo",
-              presentation: "modal",
-              animation: "slide_from_right",
-              gestureEnabled: true,
-              gestureDirection: "horizontal",
-            }}
-          />
-        </Stack>
+        {children}
       </ThemeProvider>
     </Provider>
   );
 }
+
+function AppContent() {
+  return (
+    <Stack>
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="modal"
+        options={{
+          title: "Tamagui + Expo",
+          presentation: "modal",
+          animation: "slide_from_right",
+          gestureEnabled: true,
+          gestureDirection: "horizontal",
+        }}
+      />
+    </Stack>
+  );
+}
+
+let AppEntryPoint = () => (
+  <Wrapper>
+    <AppContent />
+  </Wrapper>
+);
+
+// Render Storybook if storybookEnabled is true
+if (Constants.expoConfig?.extra?.storybookEnabled === "true") {
+  const Storybook = require("../.storybook").default;
+  AppEntryPoint = () => (
+    <Wrapper>
+      <Stack.Screen></Stack.Screen>
+      <Storybook />
+    </Wrapper>
+  );
+}
+
+export default AppEntryPoint;
