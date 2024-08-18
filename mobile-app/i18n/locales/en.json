@@ -1,5 +1,20 @@
 {
   "onboarding": {
-    "title": "Onboarding"
+    "title": "Onboarding",
+    "steps": {
+      "1": {
+        "title": "Gain total control of your money",
+        "des": "Become your own money manager and make every cent count"
+      },
+      "2": {
+        "title": "Know where your money goes",
+        "des": "Track your transaction easily, with categories and financial report"
+      }
+    }
+  },
+  "auth": {
+    "auth-with-google": {
+      "label": "Sign Up with Google"
+    }
   }
 }
