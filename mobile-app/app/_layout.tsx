@@ -55,24 +55,16 @@ function Wrapper({ children }: PropsWithChildren) {
 
 function AppContent() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="(tabs)"
-        options={{
-          headerShown: false,
-        }}
-      />
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="main" />
 
-      <Stack.Screen
-        name="modal"
-        options={{
-          title: "Tamagui + Expo",
-          presentation: "modal",
-          animation: "slide_from_right",
-          gestureEnabled: true,
-          gestureDirection: "horizontal",
-        }}
-      />
+      <Stack.Screen name="index" />
+
+      <Stack.Screen name="onboarding" />
     </Stack>
   );
 }
