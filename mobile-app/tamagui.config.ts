@@ -143,6 +143,13 @@ export const config = createTamagui({
       backgroundPress: colors["light.60"],
       backgroundFocus: colors["light.60"],
     },
+    google_btn: {
+      color: colors["dark.100"],
+      borderColor: colors["light.60"],
+      background: colors["light.100"],
+      backgroundPress: colors["light.60"],
+      backgroundFocus: colors["light.60"],
+    },
   },
   fonts: {
     ...fonts,
