@@ -1,0 +1,78 @@
+type Category {
+  createdAt: DateTime
+  iconName: String
+  id: String!
+  isCommonCategory: Boolean!
+  title: String!
+  updatedAt: DateTime
+}
+
+input CreateTransactionDto {
+  amount: Float!
+  categoryID: String!
+  date: DateTime!
+  description: String!
+  title: String!
+  type: TransactionType!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ExpenseResponse {
+  amount: Float!
+  category: String!
+  description: String!
+  expenseTitle: String!
+}
+
+type LoginResponse {
+  token: String!
+}
+
+type Mutation {
+  createBulkTransaction(input: [CreateTransactionDto!]!): [Transaction!]!
+  createCategory(title: String!): Category!
+  createTransaction(input: CreateTransactionDto!): Transaction!
+  deleteCategory(categoryID: String!): OperationResult!
+  deleteTransaction(transactionID: String!): OperationResult!
+  extractExpenses(mimeType: String!, uri: String!): [ExpenseResponse!]!
+  login(idToken: String!): LoginResponse!
+  updateTransaction(input: UpdateTransactionDto!, transactionID: String!): Transaction!
+}
+
+type OperationResult {
+  success: Boolean!
+}
+
+type Query {
+  myCategories: [Category!]!
+  queryPlaceholder: Boolean!
+}
+
+type Transaction {
+  amount: Float!
+  createdAt: DateTime
+  date: DateTime!
+  description: String!
+  id: String!
+  title: String!
+  type: TransactionType!
+  updatedAt: DateTime
+}
+
+enum TransactionType {
+  Expense
+  Income
+}
+
+input UpdateTransactionDto {
+  amount: Float
+  categoryID: String
+  date: DateTime!
+  description: String
+  title: String
+  type: TransactionType
+}

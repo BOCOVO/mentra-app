@@ -14,12 +14,14 @@
     "storybook:android": "cross-env STORYBOOK_ENABLED='true' expo run:android",
     "generate-themes": "tamagui generate-themes ./theme-builder.ts ./themes.ts",
     "test": "jest --watchAll",
-    "storybook-generate": "sb-rn-get-stories"
+    "storybook-generate": "sb-rn-get-stories",
+    "graphql-gen": "graphql-codegen --watch --require dotenv/config --config codegen.ts dotenv_config_path=.env"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.4",
     "@react-native-google-signin/google-signin": "^12.2.1",
     "@react-navigation/native": "^6.1.17",
     "@tamagui/config": "^1.108.2",
@@ -37,6 +39,7 @@
     "expo-system-ui": "~3.0.4",
     "expo-web-browser": "~13.0.3",
     "formik": "^2.4.6",
+    "graphql": "^16.9.0",
     "i18next": "^23.13.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -50,9 +53,12 @@
     "tamagui": "^1.108.2"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.12.13",
     "@babel/core": "^7.24.6",
     "@expo/metro-config": "~0.18.4",
     "@expo/metro-runtime": "~3.2.1",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/schema-ast": "^4.1.0",
     "@react-native-async-storage/async-storage": "^1.24.0",
     "@react-native-community/datetimepicker": "^8.2.0",
     "@react-native-community/slider": "^4.5.2",
