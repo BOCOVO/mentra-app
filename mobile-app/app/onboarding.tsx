@@ -5,13 +5,16 @@ import OnboardingCard from "components/onboarding/OnboardingCard";
 import { YStack } from "tamagui";
 import AuthWithGoogleButton from "components/ui/Button/AuthWithGoogleButton";
 import { useAuthWithGoogle } from "hooks/authWithGoogle";
+import { useLogin } from "hooks/login";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 
 const Onboarding = () => {
   const { t } = useTranslation();
 
-  const { signIn } = useAuthWithGoogle();
+  const { loading, execLoginMutation } = useLogin();
+
+  const { signIn } = useAuthWithGoogle(execLoginMutation);
 
   return (
     <SafeAreaView style={styles.viewport}>
@@ -33,9 +36,8 @@ const Onboarding = () => {
             />
           )}
         />
-
         <YStack marginBottom={50} paddingHorizontal="$4">
-          <AuthWithGoogleButton onPress={signIn} />
+          <AuthWithGoogleButton loading={loading} onPress={signIn} />
         </YStack>
       </YStack>
     </SafeAreaView>

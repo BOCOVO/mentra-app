@@ -11,8 +11,8 @@ import {
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { Provider } from "./Provider";
-import "../i18n/i18n"
-
+import "../i18n/i18n";
+import ApolloProvider from "providers/ApolloProvider";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -49,7 +49,7 @@ function Wrapper({ children }: PropsWithChildren) {
   return (
     <Provider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {children}
+        <ApolloProvider>{children}</ApolloProvider>
       </ThemeProvider>
     </Provider>
   );
