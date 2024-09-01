@@ -1,7 +1,38 @@
 import { useColorScheme } from "react-native";
-import { TamaguiProvider, type TamaguiProviderProps } from "tamagui";
-import { ToastProvider, ToastViewport } from "@tamagui/toast";
+import { TamaguiProvider, YStack, type TamaguiProviderProps } from "tamagui";
+import {
+  Toast,
+  ToastProvider,
+  ToastViewport,
+  useToastState,
+} from "@tamagui/toast";
 import { config } from "../tamagui.config";
+
+export function CurrentToast() {
+  const currentToast = useToastState();
+
+  if (!currentToast || currentToast.isHandledNatively) return null;
+
+  return (
+    <Toast
+      key={currentToast.id}
+      duration={currentToast.duration}
+      viewportName={currentToast.viewportName}
+      enterStyle={{ opacity: 0, scale: 0.5, y: -25 }}
+      exitStyle={{ opacity: 0, scale: 1, y: -20 }}
+      y={0}
+      br="$6"
+      animation="quick"
+    >
+      <YStack ai="center" p="$2" gap="$2">
+        <Toast.Title fow="bold">{currentToast.title}</Toast.Title>
+        {!!currentToast.message && (
+          <Toast.Description>{currentToast.message}</Toast.Description>
+        )}
+      </YStack>
+    </Toast>
+  );
+}
 
 export function Provider({
   children,
@@ -18,14 +49,10 @@ export function Provider({
       <ToastProvider
         swipeDirection="horizontal"
         duration={6000}
-        native={
-          [
-            /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
-            // 'mobile'
-          ]
-        }
+        native={["mobile"]}
       >
         {children}
+        <CurrentToast />
         <ToastViewport top="$8" left={0} right={0} />
       </ToastProvider>
     </TamaguiProvider>
