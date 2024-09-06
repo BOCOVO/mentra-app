@@ -14,7 +14,9 @@
   },
   "auth": {
     "auth-with-google": {
-      "label": "Sign Up with Google"
-    }
+      "label": "Sign Up with Google",
+      "failed-auth": "Failed to sign up with Google"
+    },
+    "failed": "Something occurred during connection"
   }
 }
