@@ -11,4 +11,7 @@
 -keep class com.swmansion.reanimated.** { *; }
 -keep class com.facebook.react.turbomodule.** { *; }
 
+# @generated begin @nozbe/watermelondb/jsi-installation - expo prebuild (DO NOT MODIFY) sync-8f6635c6aa4068b66adb52f99310843e185f5491
+-keep class com.nozbe.watermelondb.** { *; }
+# @generated end @nozbe/watermelondb/jsi-installation
 # Add any project specific keep options here:

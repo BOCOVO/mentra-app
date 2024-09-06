@@ -148,6 +148,9 @@ dependencies {
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
     def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true";
 
+// @generated begin @nozbe/watermelondb/jsi-installation - expo prebuild (DO NOT MODIFY) sync-6d994c9d672c776c5270accb852dffbba90d5c76
+implementation project(':watermelondb-jsi')
+// @generated end @nozbe/watermelondb/jsi-installation
     if (isGifEnabled) {
         // For animated gif support
         implementation("com.facebook.fresco:animated-gif:${reactAndroidLibs.versions.fresco.get()}")
