@@ -26,10 +26,12 @@ export const useLogin = () => {
 
       if (data?.login.token) {
         loginStorage.saveAuthToken(data.login.token);
+        toast.show("auth.success");
       } else {
         toast.show(t("auth.failed"));
       }
     } catch (error) {
+      console.error(error);
       toast.show(t("auth.failed"));
     }
   };
