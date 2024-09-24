@@ -6,13 +6,14 @@ import { Dialog, SizableText, Text, XStack, YStack } from "tamagui";
 import CategoryIconPickerField from "./CategoryIconPickerField";
 import { ReactNode, useState } from "react";
 import { createCatFormValidation } from "utils/validationSchema/createNewCat";
+import { Plus } from "@tamagui/lucide-icons";
 
 interface FormValue {
   title: string;
-  icon_name: string;
+  iconName: string;
 }
 
-const defaultValues: FormValue = { title: "", icon_name: "shopping" };
+const defaultValues: FormValue = { title: "", iconName: "shopping" };
 
 interface CategoryFormModalProps {
   title?: string;
@@ -46,7 +47,11 @@ const CategoryFormModal = ({
   return (
     <Dialog open={open}>
       <Dialog.Trigger onPress={openDialog} asChild>
-        {triggerComponent ?? <Text>{t("category.add-new-label")}</Text>}
+        {triggerComponent ?? (
+          <Button h="full" w="$3" theme="secondary_btn">
+            <Plus />
+          </Button>
+        )}
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -93,9 +98,10 @@ const CategoryFormModal = ({
                   placeholder={t("category.title-label")}
                   name="title"
                 />
+
                 <CategoryIconPickerField
                   label={t("category.choice-icon")}
-                  name="icon_name"
+                  name="iconName"
                 />
 
                 <XStack gap="$3" justifyContent="flex-end">
