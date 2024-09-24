@@ -11,7 +11,6 @@ const CreateCategoryFormModal = () => {
     try {
       return await createCategory(values);
     } catch (error) {
-      console.log(error);
       toast.show(t("category.saving-failed"))
       throw error
     }
