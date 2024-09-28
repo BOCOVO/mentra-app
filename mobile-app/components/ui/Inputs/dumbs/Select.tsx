@@ -1,12 +1,19 @@
 import { Check, ChevronUp } from "@tamagui/lucide-icons";
 import type { SelectProps as CoreSelectProps } from "tamagui";
 
-import { Adapt, Select as SelectCore, Sheet, YStack } from "tamagui";
+import {
+  Adapt,
+  Select as SelectCore,
+  Sheet,
+  SizableText,
+  YStack,
+} from "tamagui";
 
 import { LinearGradient } from "tamagui/linear-gradient";
 import ChevronDown from "components/svg/ChevronDown";
 import { InputWrapperProps } from "./InputWrapper";
 import { ComponentProps, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 export type SelectProps<T> = CoreSelectProps &
   InputWrapperProps & {
@@ -29,8 +36,10 @@ export function Select<T>({
   getKey,
   getLabel,
   itemProps,
+  error,
   ...restProps
 }: SelectProps<T>) {
+  const { t } = useTranslation();
   return (
     <SelectCore
       value={value}
@@ -45,11 +54,19 @@ export function Select<T>({
         paddingVertical={8}
         paddingHorizontal={16}
         borderWidth={1}
-        borderColor={restProps.error ? "$red.100" : "$light.60"}
+        borderColor={error ? "$red.100" : "$light.60"}
+        color="$light.20"
         iconAfter={ChevronDown}
+        h={56}
       >
-        <SelectCore.Value placeholder={placeholder} />
+        <SelectCore.Value color="$light.20" placeholder={placeholder} />
       </SelectCore.Trigger>
+
+      {error ? (
+        <SizableText mt="$2" size="$tiny" color={error ? "red" : "gray"}>
+          {t(error)}
+        </SizableText>
+      ) : null}
 
       <Adapt when="sm" platform="touch">
         <Sheet
