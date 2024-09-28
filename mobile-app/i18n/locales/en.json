@@ -17,6 +17,50 @@
       "label": "Sign Up with Google",
       "failed-auth": "Failed to sign up with Google"
     },
-    "failed": "Something occurred during connection"
+    "failed": "Something occurred during connection",
+    "success": "You are successfully logged in"
+  },
+  "recording": {
+    "failed-to-start": "Couldn't start recording",
+    "failed-to-stop": "Couldn't stop recording"
+  },
+  "category": {
+    "title": "Category",
+    "adding-title": "Create a new category",
+    "add-new-label": "Add new category",
+    "title-label": "Name of category",
+    "icons-title": {
+      "clothes": "Clothes",
+      "expense": "Expense",
+      "food": "Food",
+      "shopping": "Shopping",
+      "transportation": "Transportation",
+      "subscription": "Subscription",
+      "medical": "Medical",
+      "graduation": "Education"
+    },
+    "choice-icon": "Choose an icon",
+    "saving-failed": "Failed to create the category"
+  },
+  "modal": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "validation": {
+    "required": "This field is required"
+  },
+  "expense": {
+    "screen-title": "Expense",
+    "how-much": "How much ?",
+    "expense-title": "Title",
+    "expense-des": "Description",
+    "validation": {
+      "select-category": "Please select a category",
+      "expense-title": "Please provide a title"
+    },
+    "saving-failed": "Failed to add the expense"
+  },
+  "common": {
+    "continue": "Continue"
   }
 }
