@@ -2,6 +2,8 @@ import { tableSchema } from "@nozbe/watermelondb/Schema";
 import { Model } from "@nozbe/watermelondb";
 import { field, date, relation, text } from "@nozbe/watermelondb/decorators";
 import { Category } from "./category";
+import { TransactionType } from "gql/graphql";
+
 
 export const transactionSchema = tableSchema({
   name: "transactions",
@@ -14,6 +16,8 @@ export const transactionSchema = tableSchema({
     { name: "date", type: "number" },
   ],
 });
+
+
 
 export class Transaction extends Model {
   static table = "transactions";
@@ -28,7 +32,7 @@ export class Transaction extends Model {
   amount!: number;
 
   @text("type")
-  type!: string;
+  type!: TransactionType;
 
   @relation("categories", "category_id")
   category!: Category;
