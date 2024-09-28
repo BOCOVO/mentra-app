@@ -8,6 +8,7 @@ const Index = () => {
       <SizableText paddingTop={200}>
         Index app
         <Link href="onboarding">Onbarding</Link>
+        <Link href="expense/create">Create Expense</Link>
       </SizableText>
     </SafeAreaView>
   );
