@@ -48,7 +48,7 @@ const CategoryFormModal = ({
     <Dialog open={open}>
       <Dialog.Trigger onPress={openDialog} asChild>
         {triggerComponent ?? (
-          <Button h="full" w="$3" theme="secondary_btn">
+          <Button h={56} w="$3" theme="secondary_btn">
             <Plus />
           </Button>
         )}

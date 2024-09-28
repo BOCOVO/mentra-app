@@ -11,9 +11,9 @@ const Button = forwardRef(
       <CoreButton
         paddingHorizontal={30}
         borderRadius={16}
-        height={45}
+        height={56}
         ref={ref}
-        fontSize={16}
+        fontSize={17}
         fontWeight="600"
         icon={props.loading ? <Spinner /> : props.icon}
         {...props}
