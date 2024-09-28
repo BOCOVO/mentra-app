@@ -11,8 +11,11 @@ import {
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { Provider } from "./Provider";
+import "db/index";
 import "../i18n/i18n";
 import ApolloProvider from "providers/ApolloProvider";
+import { DatabaseProvider } from "@nozbe/watermelondb/react";
+import database from "db/index";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -49,7 +52,9 @@ function Wrapper({ children }: PropsWithChildren) {
   return (
     <Provider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <ApolloProvider>{children}</ApolloProvider>
+        <ApolloProvider>
+          <DatabaseProvider database={database}>{children}</DatabaseProvider>
+        </ApolloProvider>
       </ThemeProvider>
     </Provider>
   );
@@ -63,6 +68,8 @@ function AppContent() {
       }}
     >
       <Stack.Screen name="main" />
+
+      <Stack.Screen name="expense" />
 
       <Stack.Screen name="index" />
 
