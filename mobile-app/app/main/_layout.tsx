@@ -9,7 +9,7 @@ export default function TabLayout() {
     >
       <Tabs.Screen name="index" />
 
-      <Tabs.Screen name="transaction" />
+      <Tabs.Screen name="transactions" />
 
       <Tabs.Screen name="settings" />
 
