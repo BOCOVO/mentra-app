@@ -66,7 +66,7 @@ const typos = createFont({
   },
 });
 
-const colors = {
+export const colors = {
   "dark.25": "#7A7E80",
   "dark.50": "#212325",
   "dark.75": "#161719",
