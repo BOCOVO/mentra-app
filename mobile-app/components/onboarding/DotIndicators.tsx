@@ -10,7 +10,7 @@ const DotIndicators = ({ activeIndex, itemCount }: DotIndicatorsProps) => {
   return (
     <View columnGap="$3" style={styles.container}>
       {Array.from({ length: itemCount }).map((_, index) => (
-        <Dot active={activeIndex === index} />
+        <Dot key={index} active={activeIndex === index} />
       ))}
     </View>
   );
